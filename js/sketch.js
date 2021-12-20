@@ -9,19 +9,19 @@ var yspeed;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    background(11, 142, 128);
-    frameRate(20)
+    // frameRate(20)
     gif = loadImage('img/gif-with-window.gif');
     
     x = random(width);
     y = random(height);
-    xspeed = 40;
-    yspeed = 40;
-    
+    xspeed = 5;
+    yspeed = 5;
+
   }
   
   function draw() {
 
+    background(11, 142, 128);
     image(gif, x, y);
     x = x + xspeed;
     y = y + yspeed;
@@ -42,4 +42,5 @@ function setup() {
       y = 0;
     }
   }
+
   // https://editor.p5js.org/cmorgantywls/sketches/HkdbRQnOG
