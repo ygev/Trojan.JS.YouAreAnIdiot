@@ -1,3 +1,82 @@
+
+@font-face {
+    font-family: 'PX Sans';
+    src: url(px_sans_nouveaux.ttf);
+}
+
 body {
     background: teal;
+    font-family: 'PX Sans';
+    color: white;
+}
+
+#canvas {
+    display: none;
+}
+
+
+/* Start Bar */
+
+.start-bar {
+    padding: 2px;
+    box-shadow: inset 1px 0 #fff;
+    display: block;
+    background-color: silver;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #4e4e4e;
+    position: fixed;
+    z-index: 99999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.start-button {
+    background-image: url(../img/start-button.png);
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 14px;
+}
+
+.start-button-wrapper {
+    display: flex;
+    margin-left: 2px;
+    margin-bottom: 2px;
+    padding: 2px 6px 3px;
+    background-color: silver;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    box-shadow: inset 1px 1px #dfdfdf,1px 0 #000,0 1px #000,1px 1px #000;
+    max-width: min-content;
+    margin-right: 6px;
+    color: #000;
+}
+
+/* Icons */
+.icon {
+    width: 72px;
+    height: 72px;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.icon-img {
+    width: 32px;
+    padding-bottom: 8px;
+}
+
+.icon-txt {
+    font-size: 0.5em;
 }

@@ -8,7 +8,8 @@ var yspeed;
 
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    let mycanvas = createCanvas(windowWidth, windowHeight);
+    mycanvas.parent('canvas');
     // frameRate(20)
     gif = loadImage('img/gif-with-window.gif');
     
