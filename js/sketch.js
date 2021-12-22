@@ -20,8 +20,8 @@ function setup() {
   }
   
   function draw() {
-
-    background(11, 142, 128);
+    clear()
+    // background(11, 142, 128);
     image(gif, x, y);
     x = x + xspeed;
     y = y + yspeed;
