@@ -8,12 +8,22 @@ body {
     background: teal;
     font-family: 'PX Sans';
     color: white;
+    overflow: hidden;
 }
 
 #canvas {
-    display: none;
+    /* display: none; */
+    position: absolute;
 }
 
+/* 
+main {
+    height: 100%;
+} */
+
+.unhide {
+    display: block;
+}
 
 /* Start Bar */
 
@@ -70,6 +80,10 @@ body {
     justify-content: center;
     align-content: center;
     align-items: center;
+}
+
+.icon--selected {
+    background: red;
 }
 
 .icon-img {

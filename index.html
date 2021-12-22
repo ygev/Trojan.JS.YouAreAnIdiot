@@ -22,5 +22,32 @@
         <div class="start-button"></div>
       </div>
     </footer>
+    <script>
+      
+      // Selection Logic
+      // var icon = document.getElementsByClassName('icon')[0];
+      // document.addEventListener('click', function(event) {
+      //   var isClickInside = icon.contains(event.target);
+
+      //   if (!isClickInside) {
+      //     icon.classList.remove("icon--selected");
+      //   }
+      //   else {
+      //     icon.classList.add("icon--selected");
+      //   }
+      // });
+ 
+      // Double Click Logic
+      var icon = document.getElementsByClassName('icon')[0];
+      var leCanvas = document.getElementById('canvas');
+
+      leCanvas.style.display = "none"; 
+      document.addEventListener('dblclick', function(event) {
+          leCanvas.style.display = "block"; 
+      });
+
+
+
+    </script>
   </body>
 </html>
