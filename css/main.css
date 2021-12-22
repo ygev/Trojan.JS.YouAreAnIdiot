@@ -9,17 +9,12 @@ body {
     font-family: 'PX Sans';
     color: white;
     overflow: hidden;
+    image-rendering: pixelated;
 }
 
 #canvas {
-    /* display: none; */
     position: absolute;
 }
-
-/* 
-main {
-    height: 100%;
-} */
 
 .unhide {
     display: block;
@@ -82,8 +77,17 @@ main {
     align-items: center;
 }
 
-.icon--selected {
-    background: red;
+.icon-img_selected {
+    background: rgb(0,0,128);
+    mask-image: url(../img/computer.png);
+    -webkit-mask-image: url(../img/computer.png);
+    opacity: 0.5;
+}
+
+.icon-txt_selected {
+    background: rgb(0,0,128);
+    border-style: dotted;
+    border-color: white;
 }
 
 .icon-img {
@@ -93,4 +97,6 @@ main {
 
 .icon-txt {
     font-size: 0.5em;
+    padding: 2px;
+    border:1px;
 }
