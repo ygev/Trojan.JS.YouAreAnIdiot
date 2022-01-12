@@ -17,8 +17,9 @@ function preload() {
 function setup() {
     let mycanvas = createCanvas(windowWidth, windowHeight);
     mycanvas.parent('canvas');
+    mycanvas.mouseClicked(spawnAndSing);
     
-    setInterval(clearCanvas, 1000);
+    // setInterval(clearCanvas, 1000);
     // Window Moving Around
     x = random(width);
     y = random(height);
@@ -60,6 +61,7 @@ function setup() {
    
 
   function draw() {
+    clear();
 
   // Animation of the image
     image(gif, x, y);
@@ -82,6 +84,30 @@ function setup() {
       y = 0;
     }
 
+  }
+
+
+  function spawnAndSing() {
+    song.play();
+    image(gif, mouseX, mouseY);
+    x = mouseX + xspeed;
+    y = mouseY + yspeed;
+  
+    if (x + gif.width >= width) {
+      xspeed = -xspeed;
+      x = width - gif.width;
+    } else if (x <= 0) {
+      xspeed = -xspeed;
+      x = 0;
+    }
+  
+    if (y + gif.height >= height) {
+      yspeed = -yspeed;
+      y = height - gif.height;
+    } else if (y <= 0) {
+      yspeed = -yspeed;
+      y = 0;
+    }
   }
 
     // Clear Canvas
