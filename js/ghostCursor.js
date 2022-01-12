@@ -107,7 +107,7 @@ function ghostCursor(options) {
      */
   
     function Particle(x, y, image) {
-      const lifeSpan = 10
+      const lifeSpan = 30
       this.initialLifeSpan = lifeSpan //ms
       this.lifeSpan = lifeSpan //ms
       this.position = { x: x, y: y }

@@ -18,6 +18,7 @@ function setup() {
     let mycanvas = createCanvas(windowWidth, windowHeight);
     mycanvas.parent('canvas');
     
+    setInterval(clearCanvas, 1000);
     // Window Moving Around
     x = random(width);
     y = random(height);
@@ -56,9 +57,9 @@ function setup() {
      });
 
   }
-  
+   
+
   function draw() {
-    clear()
 
   // Animation of the image
     image(gif, x, y);
@@ -82,5 +83,10 @@ function setup() {
     }
 
   }
+
+    // Clear Canvas
+    function clearCanvas(){  
+      clear();
+     }
 
   // https://editor.p5js.org/cmorgantywls/sketches/HkdbRQnOG
