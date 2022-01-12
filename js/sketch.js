@@ -17,6 +17,7 @@ function preload() {
 function setup() {
     let mycanvas = createCanvas(windowWidth, windowHeight);
     mycanvas.parent('canvas');
+    
     mycanvas.mouseClicked(spawnAndSing);
     
     // setInterval(clearCanvas, 1000);
@@ -84,6 +85,7 @@ function setup() {
       y = 0;
     }
 
+    
   }
 
 

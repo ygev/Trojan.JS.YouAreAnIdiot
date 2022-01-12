@@ -112,6 +112,7 @@ body {
 }
 
 .icon-txt {
+    width: max-content;
     font-size: 0.5em;
     padding: 2px;
     border:1px;
