@@ -42,7 +42,7 @@ body {
 
 
 .start-button {
-    background-image: url(../img/start-button.png);
+    background-image: url(../assets/start-button.png);
     background-repeat: no-repeat;
     width: 48px;
     height: 14px;
@@ -79,8 +79,8 @@ body {
 
 .icon-img_selected {
     background: rgb(0,0,128);
-    mask-image: url(../img/computer.png);
-    -webkit-mask-image: url(../img/computer.png);
+    mask-image: url(../assets/computer.png);
+    -webkit-mask-image: url(../assets/computer.png);
     opacity: 0.5;
 }
 
