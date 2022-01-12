@@ -25,17 +25,18 @@ function setup() {
     yspeed = 5;
 
     // Selection Logic
-    var iconImg = document.getElementsByClassName('icon-img')[0];
-    var iconTxt = document.getElementsByClassName('icon-txt')[0];
-    var icon = document.getElementsByClassName('icon')[0];
+    var iconTxt = document.getElementsByClassName('icon-txt');
+    var icon = document.getElementsByClassName('icon');
     document.addEventListener('click', function(event) {
-      var isClickInside = icon.contains(event.target);
+      for(var i = 0; i < icon.length; i++){
+        var isClickInside = icon[i].contains(event.target);
 
-      if (!isClickInside) {
-        iconTxt.classList.remove("icon-txt_selected");
-      }
-      else {
-        iconTxt.classList.add("icon-txt_selected");
+        if (!isClickInside) {
+          iconTxt[i].classList.remove("icon-txt_selected");
+        }
+        else {
+          iconTxt[i].classList.add("icon-txt_selected");
+        }
       }
     });
 
@@ -44,11 +45,13 @@ function setup() {
 
      leCanvas.style.display = "none"; 
      document.addEventListener('dblclick', function(event) {
-      var isDoubleClickInside = icon.contains(event.target);
-      if (isDoubleClickInside){
-        leCanvas.style.display = "block"; 
-        song.loop();
-        iconTxt.classList.remove("icon-txt_selected");
+      for(var i = 0; i < icon.length; i++){
+        var isDoubleClickInside = icon[i].contains(event.target);
+        if (isDoubleClickInside){
+          leCanvas.style.display = "block"; // Open the p5 Canvas takeover
+          song.loop(); // Play the song
+          iconTxt[i].classList.remove("icon-txt_selected"); // Unselect the icon
+        }
       }
      });
 
@@ -78,7 +81,6 @@ function setup() {
       y = 0;
     }
 
-    // If you click, start another instance of the song.
   }
 
   // https://editor.p5js.org/cmorgantywls/sketches/HkdbRQnOG

@@ -99,4 +99,6 @@ body {
     font-size: 0.5em;
     padding: 2px;
     border:1px;
+    line-height: 170%;
+    text-align: center;
 }
