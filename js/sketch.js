@@ -46,6 +46,14 @@ function setup() {
           leCanvas.style.display = "block"; // Open the p5 Canvas takeover
           song.loop();
           iconTxt[i].classList.remove("icon-txt_selected"); // Unselect the icon
+
+          // Every 500ms spawn new
+          const interval = setInterval(function() {
+            var newVirus = new MakeVirus(mouseX, mouseY);
+              viruses.push(newVirus);
+              song.play();
+            }, 5000);
+     
         }
       }
      });
@@ -53,32 +61,30 @@ function setup() {
     //  So do I store these in an array?
     x = mouseX;
     y = mouseY;
-    xspeed = 5;
-    yspeed = 5;
-
-    // for (var i = 0; i < 1; i++) {
-    //   viruses[i] = new MakeVirus(x, y)
-    //   }
-
+    xspeed = 10;
+    yspeed = 10;
   }
    
 
   function draw() {
     for (var i = 1; i < viruses.length; i++) {
-      viruses[i].move();
       viruses[i].show();
+      viruses[i].move();
     }
   }
+
 
   function mousePressed() {
     var newVirus = new MakeVirus(mouseX, mouseY);
     viruses.push(newVirus);
-    // song.play();
   }
 
-  function MakeVirus( x, y) {
+  function MakeVirus(x, y) {
     this.xPos = x;
     this.yPos = y;
+
+    this.homeX = x;
+    this.homeY = y;
   }
   
   MakeVirus.prototype = {
@@ -86,10 +92,9 @@ function setup() {
     show: function() {
       image(gif, this.xPos, this.yPos);
   },
-
-    move() {
+    move: function() {
       this.xPos = this.xPos + xspeed;
-      this.yPos = this.yPos +  yspeed;
+      this.yPos = this.yPos + yspeed;
 
       if (this.xPos + gif.width >= width) {
         xspeed = -xspeed;
@@ -109,21 +114,7 @@ function setup() {
     }
   }
 
-
-  // image(gif, mouseX, mouseY);
-  // x = mouseX + xspeed;
-  // y = mouseY + yspeed;
-
-
-
-  // function move() {
-  
-   
-  // }
-
     // Clear Canvas
     function clearCanvas(){  
       clear();
      }
-
-  // https://editor.p5js.org/cmorgantywls/sketches/HkdbRQnOG
