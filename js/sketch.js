@@ -1,8 +1,8 @@
 var gif 
 var song
 
-var x = 0;
-var y = 0;
+var viruses = [];
+
 
 var xspeed;
 var yspeed;
@@ -17,15 +17,8 @@ function preload() {
 function setup() {
     let mycanvas = createCanvas(windowWidth, windowHeight);
     mycanvas.parent('canvas');
-
-    mycanvas.mouseClicked(spawnAndSing);
     
     setInterval(clearCanvas, 100);
-    // Window Moving Around
-    x = random(width);
-    y = random(height);
-    xspeed = 5;
-    yspeed = 5;
 
     // Selection Logic
     var iconTxt = document.getElementsByClassName('icon-txt');
@@ -45,72 +38,88 @@ function setup() {
 
      // Double Click Logic
      var leCanvas = document.getElementById('canvas');
-
      leCanvas.style.display = "none"; 
      document.addEventListener('dblclick', function(event) {
       for(var i = 0; i < icon.length; i++){
         var isDoubleClickInside = icon[i].contains(event.target);
         if (isDoubleClickInside){
           leCanvas.style.display = "block"; // Open the p5 Canvas takeover
-          song.loop(); // Play the song
+          song.loop();
           iconTxt[i].classList.remove("icon-txt_selected"); // Unselect the icon
         }
       }
      });
 
+    //  So do I store these in an array?
+    x = mouseX;
+    y = mouseY;
+    xspeed = 5;
+    yspeed = 5;
+
+    // for (var i = 0; i < 1; i++) {
+    //   viruses[i] = new MakeVirus(x, y)
+    //   }
+
   }
    
 
   function draw() {
-    // clear();
-
-  // Animation of the image
-    image(gif, x, y);
-    x = x + xspeed;
-    y = y + yspeed;
-  
-    if (x + gif.width >= width) {
-      xspeed = -xspeed;
-      x = width - gif.width;
-    } else if (x <= 0) {
-      xspeed = -xspeed;
-      x = 0;
+    for (var i = 1; i < viruses.length; i++) {
+      viruses[i].move();
+      viruses[i].show();
     }
-  
-    if (y + gif.height >= height) {
-      yspeed = -yspeed;
-      y = height - gif.height;
-    } else if (y <= 0) {
-      yspeed = -yspeed;
-      y = 0;
-    }
+  }
 
+  function mousePressed() {
+    var newVirus = new MakeVirus(mouseX, mouseY);
+    viruses.push(newVirus);
+    // song.play();
+  }
+
+  function MakeVirus( x, y) {
+    this.xPos = x;
+    this.yPos = y;
+  }
+  
+  MakeVirus.prototype = {
+    constructor: MakeVirus,
+    show: function() {
+      image(gif, this.xPos, this.yPos);
+  },
+
+    move() {
+      this.xPos = this.xPos + xspeed;
+      this.yPos = this.yPos +  yspeed;
+
+      if (this.xPos + gif.width >= width) {
+        xspeed = -xspeed;
+        this.xPos = width - gif.width;
+      } else if (this.xPos <= 0) {
+        xspeed = -xspeed;
+        this.xPos = 0;
+      }
     
+      if (this.yPos + gif.height >= height) {
+        yspeed = -yspeed;
+        this.yPos = height - gif.height;
+      } else if (this.yPos <= 0) {
+        yspeed = -yspeed;
+        this.yPos = 0;
+      }
+    }
   }
 
 
-  function spawnAndSing() {
-    song.play();
-    image(gif, mouseX, mouseY);
-    x = mouseX + xspeed;
-    y = mouseY + yspeed;
+  // image(gif, mouseX, mouseY);
+  // x = mouseX + xspeed;
+  // y = mouseY + yspeed;
+
+
+
+  // function move() {
   
-    if (x + gif.width >= width) {
-      xspeed = -xspeed;
-      x = width - gif.width;
-    } else if (x <= 0) {
-      xspeed = -xspeed;
-      x = 0;
-    }
-  
-    if (y + gif.height >= height) {
-      yspeed = -yspeed;
-      y = height - gif.height;
-    } else if (y <= 0) {
-      yspeed = -yspeed;
-      y = 0;
-    }
-  }
+   
+  // }
 
     // Clear Canvas
     function clearCanvas(){  
