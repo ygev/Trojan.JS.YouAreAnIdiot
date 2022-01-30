@@ -17,10 +17,10 @@ function preload() {
 function setup() {
     let mycanvas = createCanvas(windowWidth, windowHeight);
     mycanvas.parent('canvas');
-    
+
     mycanvas.mouseClicked(spawnAndSing);
     
-    // setInterval(clearCanvas, 1000);
+    setInterval(clearCanvas, 100);
     // Window Moving Around
     x = random(width);
     y = random(height);
@@ -62,7 +62,7 @@ function setup() {
    
 
   function draw() {
-    clear();
+    // clear();
 
   // Animation of the image
     image(gif, x, y);
