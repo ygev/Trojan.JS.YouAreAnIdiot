@@ -46,6 +46,13 @@ function setup() {
           leCanvas.style.display = "block"; // Open the p5 Canvas takeover
           song.loop();
           iconTxt[i].classList.remove("icon-txt_selected"); // Unselect the icon
+          document.title = "T̸r̸o̸j̸a̶n̴.̸J̴S̵.̸Y̵o̶u̷A̷r̸e̴A̶n̴I̴d̴i̸o̶t̴"
+          var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+          link.type = 'image/gif';
+          link.rel = 'shortcut icon';
+          link.href = 'assets/you-favicon.gif';
+          document.getElementsByTagName('head')[0].appendChild(link);
+
 
           // Every 500ms spawn new
           const interval = setInterval(function() {
